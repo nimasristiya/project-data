@@ -11,12 +11,12 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Dataset
 datetime_cols = ["order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", "order_estimated_delivery_date", "order_purchase_timestamp", "shipping_limit_date"]
-all_df = pd.read_csv("./data/all_data.csv")
+all_df = pd.read_csv("../data/all_data.csv")
 all_df.sort_values(by="order_approved_at", inplace=True)
 all_df.reset_index(inplace=True)
 
 # Geolocation Dataset
-geolocation = pd.read_csv('./data/geolocation.csv')
+geolocation = pd.read_csv('../data/geolocation.csv')
 data = geolocation.drop_duplicates(subset='customer_unique_id')
 
 for col in datetime_cols:
@@ -28,10 +28,10 @@ max_date = all_df["order_approved_at"].max()
 # Sidebar
 with st.sidebar:
     # Title
-    st.title("Sulistiawan A. P.")
+    st.title("Nimas Ristiya Rahma")
 
     # Logo Image
-    st.image("./dashboard/gcl.png")
+    st.image("../dashboard/gcl.png")
 
     # Date Range
     start_date, end_date = st.date_input(
@@ -211,5 +211,6 @@ with tab3:
     with st.expander("See Explanation"):
         st.write('Sesuai dengan grafik yang sudah dibuat, ada lebih banyak pelanggan di bagian tenggara dan selatan. Informasi lainnya, ada lebih banyak pelanggan di kota-kota yang merupakan ibu kota (São Paulo, Rio de Janeiro, Porto Alegre, dan lainnya).')
 
-st.caption('Copyright (C) Sulistiawan A. P. 2023')
+st.caption('Copyright (C) Nimas Ristiya Rahma 2024')
+
 
